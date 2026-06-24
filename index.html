@@ -1,0 +1,57 @@
+<html>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <div class="orbit-container orbit-rotate hidden" id="orbit-box">
+        <i class="fas fa-leaf float-icon i1"></i>
+        <i class="fas fa-shopping-basket float-icon i2"></i>
+        <i class="fas fa-spa float-icon i3"></i>
+        <i class="fas fa-hand-holding-heart float-icon i4"></i>
+        <i class="fas fa-mortar-pestle float-icon i5"></i>
+        <i class="fas fa-seedling float-icon i6"></i>
+        <i class="fas fa-shopping-bag float-icon i7"></i>
+        <i class="fas fa-briefcase-medical float-icon i8"></i>
+    </div>
+
+    <div class="logo-box fly-active" id="main-logo" style="position: fixed; top: 316.95px; left: 677px;">
+        <img src="https://raw.githubusercontent.com/nemimart/The-Nemi-Mart/main/logo.png" alt="Nemi Mart">
+        <div class="tagline" id="tag" style="opacity: 0;">THE NEMI MART</div>
+    </div>
+
+    <script>
+        window.onload = () => {
+            const logo = document.getElementById('main-logo');
+            const orbit = document.getElementById('orbit-box');
+            const tag = document.getElementById('tag');
+
+            // 1. Pehle 2.5 second animation dikhao
+            setTimeout(() => {
+                
+                // 2. Icons aur tagline ko gayab karo
+                orbit.classList.add('hidden');
+                tag.style.opacity = "0";
+
+                // 3. Logo ko fly karwao (Top-Left)
+                // Hum center se absolute position calculate karke move karenge
+                const rect = logo.getBoundingClientRect();
+                logo.style.position = 'fixed';
+                logo.style.top = rect.top + 'px';
+                logo.style.left = rect.left + 'px';
+                
+                setTimeout(() => {
+                    logo.classList.add('fly-active');
+                }, 10);
+
+                // 4. Finally Home Page par redirect
+                setTimeout(() => {
+                    window.location.href = "home.html";
+                }, 1800); // Slower redirect for smooth feel
+
+            }, 3000); 
+        };
+    </script>
+
+
+</body>
+</html>
